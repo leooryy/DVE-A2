@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="animation + MV.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.png" shadow-intensity="0.38" environment-image="monochrome_studio_012.png" exposure="2" shadow-softness="0.37" camera-orbit="-358.7deg 73.25deg 0.7692m" field-of-view="30deg" id="gear">
+     <button class="Hotspot" slot="hotspot-2" data-position="-0.10551409079622091m 0.04247888429012343m 0.03263458785732175m" data-normal="-0.0019302155397014176m 0.6846738626182206m 0.728847018321003m" data-visibility-attribute="visible" onMouseOver="addhotspot2()" onMouseOut="removehotspot2()">
+          <div class="HotspotAnnotation" id="hotspot2" style="visibility:hidden">Floss Drawer</div>
+      </button>
+
+
+      <button class="Hotspot" slot="hotspot-3" data-position="0.12542605975065518m 0.09128083817244673m 0.03801711624537789m" data-normal="0.07479892362971745m -0.11025705948602067m 0.991084507929234m" data-visibility-attribute="visible" onMouseOver="addhotspot3()" onMouseOut="removehotspot3()">
+          <div class="HotspotAnnotation" id="hotspot3" style="visibility:hidden">Toothbrush</div>
+      </button>
+
+<button class="Hotspot" slot="hotspot-4" data-position="0.08327722870997159m 0.03528109394224653m 0.04128061421189349m" data-normal="0.16397390803683978m 0.07154995592139302m 0.983866434680426m" data-visibility-attribute="visible" onMouseOver="addhotspot4()" onMouseOut="removehotspot4()">
+          <div class="HotspotAnnotation" id="hotspot4" style="visibility:hidden">Toothpaste Dispenser</div>
+      </button>
+
+<button class="Hotspot" slot="hotspot-5" data-position="-0.034043434519140506m 0.08134606509785813m -0.0016720976022121734m" data-normal="1.7775125476440554e-17m 1m 2.920233192167611e-16m" data-visibility-attribute="visible" onMouseOver="addhotspot5()" onMouseOut="removehotspot5()">
+          <div class="HotspotAnnotation" id="hotspot5" style="visibility:hidden">Screen</div>
+      </button>
+
+<button class="Hotspot" slot="hotspot-6" data-position="0.1450446198974609m 0.079675894037842m -0.0042957132651102094m" data-normal="1m 0m 0m" data-visibility-attribute="visible" onMouseOver="addhotspot6()" onMouseOut="removehotspot6()">
+          <div class="HotspotAnnotation" id="hotspot6" style="visibility:hidden">Tongue Scraper Slot</div>
+      </button>
+
+<button class="Hotspot" slot="hotspot-7" data-position="0.040695842778673726m 0.05416603701048268m -0.039282691235351545m" data-normal="0m 2.220446049250313e-16m -1m" data-visibility-attribute="visible" onMouseOver="addhotspot7()" onMouseOut="removehotspot7()">
+          <div class="HotspotAnnotation" id="hotspot7" style="visibility:hidden">Lid</div>
+      </button>
+
+<button class="Hotspot" slot="hotspot-8" data-position="0.17004640517578123m 0.0016233167694891942m -0.002857586192967913m" data-normal="1m 0m 0m" data-visibility-attribute="visible" onMouseOver="addhotspot8()" onMouseOut="removehotspot8()">
+          <div class="HotspotAnnotation" id="hotspot8" style="visibility:hidden">Charging Port</div>
+      </button>
+
+<button class="Hotspot" slot="hotspot-9" data-position="0.12713737248865498m 0.01590761652710558m -0.03931446003417962m" data-normal="0m 2.220446049250313e-16m -1m" data-visibility-attribute="visible" onMouseOver="addhotspot9()" onMouseOut="removehotspot9()">
+          <div class="HotspotAnnotation" id="hotspot9" style="visibility:hidden">Suction Cup Slots</div>
+      </button>
+
+<div class="controls" style="position:absolute; bottom:50px; left:50px">
+<div>Variant:
+<button onClick="VBtn01()">01</button>
+<button onClick="VBtn02()">02</button>
+<button onClick="VBtn03()">03</button>
+</div>
+</div>
+
+<div style="position:absolute; bottom:50px; right:50px">
+    <button onClick="setOrbit('358.6deg 90.35deg 0.6734m')">Front</button>
+    <button onClick="setOrbit('360deg 3.14deg 0.7692m')">Top</button>
+    <button onClick="setOrbit('180.3deg 180deg 0.6838m')">Bottom</button>
+</div>
+
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+
+<div class="controls" style="position: absolute; bottom: 0px; left: 50px"
+<div>Animation:
+<button id="default1Btn" onClick="Btn01()">Drawer
+</button>
+<button id="default2Btn" onClick="Btn02()">Exploded View
+</button>
+<button id="default3Btn" onClick="Btn03()">Back Panel
+</button>
+<button id="default4Btn" onClick="Btn04()">Screen
+</button>
+<button id="default5Btn" onClick="Btn05()">Toothbrush
+</button>
+<button id="pauseBtn" onClick="pauseAnimation()">Pause Animation
+</button>
+</div>
+</div>
+
+    </model-viewer>  
+
+<script>
+      function setOrbit(orbit) {
+           document.getElementById('gear').cameraOrbit = orbit;
+}
+
+function addhotspot2(){
+document.getElementById("hotspot2").style.visibility="visible"
+}
+function removehotspot2(){
+document.getElementById("hotspot2").style.visibility="hidden";
+}
+
+function addhotspot3(){
+document.getElementById("hotspot3").style.visibility="visible"
+}
+function removehotspot3(){
+document.getElementById("hotspot3").style.visibility="hidden";
+}
+
+function addhotspot4(){
+document.getElementById("hotspot4").style.visibility="visible"
+}
+function removehotspot4(){
+document.getElementById("hotspot4").style.visibility="hidden";
+}
+
+function addhotspot5(){
+document.getElementById("hotspot5").style.visibility="visible"
+}
+function removehotspot5(){
+document.getElementById("hotspot5").style.visibility="hidden";
+}
+
+function addhotspot6(){
+document.getElementById("hotspot6").style.visibility="visible"
+}
+function removehotspot6(){
+document.getElementById("hotspot6").style.visibility="hidden";
+}
+
+function addhotspot7(){
+document.getElementById("hotspot7").style.visibility="visible"
+}
+function removehotspot7(){
+document.getElementById("hotspot7").style.visibility="hidden";
+}
+
+function addhotspot8(){
+document.getElementById("hotspot8").style.visibility="visible"
+}
+function removehotspot8(){
+document.getElementById("hotspot8").style.visibility="hidden";
+}
+
+function addhotspot9(){
+document.getElementById("hotspot9").style.visibility="visible"
+}
+function removehotspot9(){
+document.getElementById("hotspot9").style.visibility="hidden";
+}
+</script>
+
+<script>
+function VBtn01() {
+document.getElementById('gear').variantName = "v2";}
+function VBtn02() {
+document.getElementById('gear').variantName = "v3";}
+function VBtn03() {
+document.getElementById('gear').variantName = "v1";}
+</script>
+
+<script>
+function Btn01()
+{document.getElementById('gear').pause();
+document.getElementById('gear').animationName = "Drawer Anim";
+document.getElementById('gear').play(); }
+function Btn02()
+{document.getElementById('gear').pause();
+document.getElementById('gear').animationName = "Exploded View";
+document.getElementById('gear').play(); }
+function Btn03()
+{document.getElementById('gear').pause();
+document.getElementById('gear').animationName = "Panel Open";
+document.getElementById('gear').play(); }
+function Btn04()
+{document.getElementById('gear').pause();
+document.getElementById('gear').animationName = "Screen Anim";
+document.getElementById('gear').play(); }
+function Btn05()
+{document.getElementById('gear').pause();
+document.getElementById('gear').animationName = "Toothbrush Anim";
+document.getElementById('gear').play(); }
+function pauseAnimation()
+{ document.getElementById('gear').pause(); }
+</script>
+
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  </body>
+</html>
